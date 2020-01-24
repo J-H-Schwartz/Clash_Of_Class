@@ -14,7 +14,7 @@ def main():
     weapon, attack_points = personnage1.attack()
     print(weapon, attack_points)
     personnage2.defend(weapon, attack_points)
-    print("Il reste " + str(personnage2.currentLife) + " points de vie à " + personnage2.nom)
+    print("Il reste " + str(personnage2.current_life) + " points de vie à " + personnage2.nom)
 
     weapon, attack_points = personnage2.attack()
     print(weapon, attack_points)
