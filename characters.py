@@ -23,10 +23,10 @@ class Characters:
     def defend(self, weapon, attack_points):
         dices = dict(self.roll_dice())
         defence_points = dices[weapon]
-        print(defence_points)
         if defence_points < attack_points:
             damages = attack_points - defence_points
             self.current_life -= damages
+        return defence_points
 
     def roll_dice(self):
         sword_dice = random.randint(1, self.max_sword_dice)
