@@ -1,30 +1,28 @@
-from characters import Warrior, Wizard
+from characters import Warrior, Wizard, Archer
 
 
 def main():
-    height1 = 0
-    weight1 = 0
-    height2 = 0
-    weight2 = 0
 
     nom1 = input("Entrez un nom: ")
-    personnage1 = Wizard(nom1)
-    while not 169 < height1 < 191:
-        height1 = int(input("Entrez une taille entre 170 et 190 cm: "))
-    personnage1.height = height1
-    while not 69 < weight1 < 91:
-        weight1 = int(input("Entrez un poids entre 70 et 90kg: "))
-    personnage1.weight = weight1
+    classe1 = input("Quelle classe voulez-vous jouer ? (W)izard / (A)rcher / Wa(R)rior: ").upper()
+    if classe1 == "W":
+        classe1 = Wizard
+    elif classe1 == "A":
+        classe1 = Archer
+    elif classe1 == "R":
+        classe1 = Warrior
+    personnage1 = classe1(nom1)
     print(personnage1)
 
     nom2 = input("Entrez un nom: ")
-    personnage2 = Warrior(nom2)
-    while not 169 < height2 < 191:
-        height2 = int(input("Entrez une taille entre 170 et 190 cm: "))
-    personnage2.height = height2
-    while not 69 < weight2 < 91:
-        weight2 = int(input("Entrez un poids entre 70 et 90kg: "))
-    personnage2.weight = weight2
+    classe2 = input("Quelle classe voulez-vous jouer ? (W)izard / (A)rcher / Wa(R)rior: ").upper()
+    if classe2 == "W":
+        classe2 = Wizard
+    elif classe2 == "A":
+        classe2 = Archer
+    elif classe2 == "R":
+        classe2 = Warrior
+    personnage2 = classe2(nom2)
     print(personnage2)
 
     personnage_actuel = personnage1

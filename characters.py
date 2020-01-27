@@ -14,8 +14,8 @@ class Characters:
     def __init__(self, name):
         self.name = name
         self.current_life = self.max_life
-        self._height = 0
-        self._weight = 0
+        self._height = random.randint(170, 190)
+        self._weight = random.randint(70, 90)
 
     def attack(self):
         dices = self.roll_dice()
@@ -33,18 +33,12 @@ class Characters:
     def _get_height(self):
         return self._height
 
-    def _set_height(self, height):
-        self._height = height
-
-    height = property(_get_height, _set_height)
+    height = property(_get_height)
 
     def _get_weight(self):
         return self._weight
 
-    def _set_weight(self, weight):
-        self._weight = weight
-
-    weight = property(_get_weight, _set_weight)
+    weight = property(_get_weight)
 
     def roll_dice(self):
         sword_dice = random.randint(1, self.max_sword_dice)
@@ -55,6 +49,14 @@ class Characters:
 
     def __repr__(self):
         return self.name + " the " + self.__class__.__name__.lower()
+
+
+# Race personnage
+
+class Race:
+
+    def __init__(self, race):
+        self.race = race
 
 
 # Sous-classe Wizard
