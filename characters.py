@@ -13,7 +13,7 @@ class Characters:
 
     def __init__(self, name):
         self.name = name
-        self.current_life = self.max_life
+        self._current_life = self.max_life
         self._height = random.randint(170, 190)
         self._weight = random.randint(70, 90)
 
@@ -30,15 +30,29 @@ class Characters:
             self.current_life -= damages
         return defence_points
 
+    # Propriété Taille
+
     def _get_height(self):
         return self._height
 
     height = property(_get_height)
 
+    # Propriété Poids
+
     def _get_weight(self):
         return self._weight
 
     weight = property(_get_weight)
+
+    # Propriété Points de Vie
+
+    def _get_current_life(self):
+        return self._current_life
+
+    def _set_current_life(self, value):
+        self._current_life = max(min(self.max_life, value), 0)
+
+    current_life = property(_get_current_life, _set_current_life)
 
     def roll_dice(self):
         sword_dice = random.randint(1, self.max_sword_dice)
