@@ -20,13 +20,13 @@ class Characters:
         self._weight = random.randint(70, 90)
 
     def attack(self):
-        dices = self.roll_dice()
-        dices = sorted(dices, key=itemgetter(1), reverse=True)
-        if dices[0][0] == "Bow":
-            dices[0][1] += self.bow_bonus
-        if dices[0][0] == "Sword":
-            dices[0][1] += self.sword_bonus
-        return dices[0]
+        attack_results = self.roll_dice()
+        attack_results = sorted(attack_results, key=itemgetter(1), reverse=True)
+        if attack_results[0][0] == "Bow":
+            attack_results[0][1] += self.bow_bonus
+        if attack_results[0][0] == "Sword":
+            attack_results[0][1] += self.sword_bonus
+        return attack_results[0]
 
     def defend(self, weapon, attack_points):
         dices = dict(self.roll_dice())
@@ -81,16 +81,16 @@ class Wizard(Characters):
     max_bow_dice = 10
 
     def attack(self):
-        dices = super().attack()
-        if dices[0] == "Magic":
+        attack_results = super().attack()
+        if attack_results[0] == "Magic":
             bonus_dice = random.randint(1, self.max_magic_dice)
-            if bonus_dice > dices[1]:
-                dices[1] = bonus_dice
-        elif dices[0] == "Sword":
-            dices[1] += (self._height + self._weight) // 40
-        elif dices[0] == "Bow":
-            dices[1] += (self._height - 170) % 3
-        return dices
+            if bonus_dice > attack_results[1]:
+                attack_results[1] = bonus_dice
+        elif attack_results[0] == "Sword":
+            attack_results[1] += (self._height + self._weight) // 40
+        elif attack_results[0] == "Bow":
+            attack_results[1] += (self._height - 170) % 3
+        return attack_results
 
 
 # Sous-classe Archer
@@ -102,14 +102,14 @@ class Archer(Characters):
     max_bow_dice = 12
 
     def attack(self):
-        dices = super().attack()
-        if dices[0] == ("Sword" or "Magic"):
-            dices[1] += 1
-            if dices[0] == "Sword":
-                dices[1] += self._height // 40
+        attack_results = super().attack()
+        if attack_results[0] == ("Sword" or "Magic"):
+            attack_results[1] += 1
+            if attack_results[0] == "Sword":
+                attack_results[1] += self._height // 40
             else:
-                dices[1] += self._weight // 20
-        return dices
+                attack_results[1] += self._weight // 20
+        return attack_results
 
 
 # Sous-classe Warrior
@@ -122,12 +122,12 @@ class Warrior(Characters):
     max_life = 16
 
     def attack(self):
-        dices = super().attack()
-        if dices[0] == "Bow":
-            dices[1] += (self._height - 170) % 3
-        elif dices[0] == "Magic":
-            dices[1] += self._weight // 30
-        return dices
+        attack_results = super().attack()
+        if attack_results[0] == "Bow":
+            attack_results[1] += (self._height - 170) % 3
+        elif attack_results[0] == "Magic":
+            attack_results[1] += self._weight // 30
+        return attack_results
 
 
 # Classe race Elfe
