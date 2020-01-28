@@ -1,0 +1,22 @@
+@font-face {
+font-family: 'MagicMedieval Regular';
+font-style: normal;
+font-weight: normal;
+src: local('MagicMedieval Regular'), url('Magim___.woff') format('woff');
+}
+.container{
+    max-width: 980px;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+}
+.content{
+    display: flex;
+}
+
+/*
+.font
+{
+    font-family:'MagicMedieval Regular', serif;
+}
+*/

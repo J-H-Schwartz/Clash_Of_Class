@@ -13,22 +13,22 @@ def main():
                                              " Dwarf Archer (2) / Dwarf Warrior (3)\n Elve Wizard (4) / Elve Archer (5)"
                                              " / Elve Warrior (6)\n (Q)uitter").upper()
                 if characters_info_menu == "1":
-                    webbrowser.open("./DwarfWizard.html")
+                    webbrowser.open("./html/DwarfWizard.html")
                     continue
                 elif characters_info_menu == "2":
-                    webbrowser.open("./DwarfArcher.html")
+                    webbrowser.open("./html/DwarfArcher.html")
                     continue
                 elif characters_info_menu == "3":
-                    webbrowser.open("./DwarfWarrior.html")
+                    webbrowser.open("./html/DwarfWarrior.html")
                     continue
                 elif characters_info_menu == "4":
-                    webbrowser.open("./ElveWizard.html")
+                    webbrowser.open("./html/ElveWizard.html")
                     continue
                 elif characters_info_menu == "5":
-                    webbrowser.open("./ElveArcher.html")
+                    webbrowser.open("./html/ElveArcher.html")
                     continue
                 elif characters_info_menu == "6":
-                    webbrowser.open("./ElveWarrior.html")
+                    webbrowser.open("./html/ElveWarrior.html")
                     continue
                 elif characters_info_menu == "Q":
                     print("Retour au menu précédent.")

@@ -158,7 +158,7 @@ class DwarfWizard(Wizard):
         self.race = Dwarf()
 
     def as_html(self):
-        return webbrowser.open("./DwarfWizard.html")
+        return webbrowser.open("./html/DwarfWizard.html")
 
 
 # Classe Nain Archer
@@ -169,7 +169,7 @@ class DwarfArcher(Archer):
         self.race = Dwarf()
 
     def as_html(self):
-        return webbrowser.open("./DwarfArcher.html")
+        return webbrowser.open("./html/DwarfArcher.html")
 
 
 # Classe Nain Guerrier
@@ -180,7 +180,7 @@ class DwarfWarrior(Warrior):
         self.race = Dwarf()
 
     def as_html(self):
-        return webbrowser.open("./DwarfWarrior.html")
+        return webbrowser.open("./html/DwarfWarrior.html")
 
 
 # Classe Elfe Sorcier
@@ -191,7 +191,7 @@ class ElveWizard(Wizard):
         self.race = Elve()
 
     def as_html(self):
-        return webbrowser.open("./ElveWizard.html")
+        return webbrowser.open("./html/ElveWizard.html")
 
 
 # Classe Elfe Archer
@@ -202,7 +202,7 @@ class ElveArcher(Archer):
         self.race = Elve()
 
     def as_html(self):
-        return webbrowser.open("./ElveArcher.html")
+        return webbrowser.open("./html/ElveArcher.html")
 
 
 # Classe Elfe Guerrier
@@ -213,4 +213,4 @@ class ElveWarrior(Warrior):
         self.race = Elve()
 
     def as_html(self):
-        return webbrowser.open("./ElveWarrior.html")
+        return webbrowser.open("./html/ElveWarrior.html")
