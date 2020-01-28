@@ -2,7 +2,6 @@ from characters import ElveWarrior, ElveWizard, ElveArcher, DwarfWarrior, DwarfW
 
 
 def main():
-
     nom1 = input("Entrez un nom: ")
     while True:
         while True:
@@ -48,6 +47,7 @@ def main():
 
 
     personnage1 = choix1(nom1)
+    personnage1.as_html()
     print(personnage1)
 
     nom2 = input("Entrez un nom: ")

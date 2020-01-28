@@ -1,4 +1,5 @@
 import random
+import webbrowser
 from operator import itemgetter
 
 
@@ -156,6 +157,9 @@ class DwarfWizard(Wizard):
         super().__init__(name)
         self.race = Dwarf()
 
+    def as_html(self):
+        return webbrowser.open("./DwarfWizard.html")
+
 
 # Classe Nain Archer
 
@@ -163,6 +167,9 @@ class DwarfArcher(Archer):
     def __init__(self, name):
         super().__init__(name)
         self.race = Dwarf()
+
+    def as_html(self):
+        return webbrowser.open("./DwarfArcher.html")
 
 
 # Classe Nain Guerrier
@@ -172,6 +179,9 @@ class DwarfWarrior(Warrior):
         super().__init__(name)
         self.race = Dwarf()
 
+    def as_html(self):
+        return webbrowser.open("./DwarfWarrior.html")
+
 
 # Classe Elfe Sorcier
 
@@ -179,6 +189,9 @@ class ElveWizard(Wizard):
     def __init__(self, name):
         super().__init__(name)
         self.race = Elve()
+
+    def as_html(self):
+        return webbrowser.open("./ElveWizard.html")
 
 
 # Classe Elfe Archer
@@ -188,6 +201,9 @@ class ElveArcher(Archer):
         super().__init__(name)
         self.race = Elve()
 
+    def as_html(self):
+        return webbrowser.open("./ElveArcher.html")
+
 
 # Classe Elfe Guerrier
 
@@ -195,3 +211,6 @@ class ElveWarrior(Warrior):
     def __init__(self, name):
         super().__init__(name)
         self.race = Elve()
+
+    def as_html(self):
+        return webbrowser.open("./ElveWarrior.html")
