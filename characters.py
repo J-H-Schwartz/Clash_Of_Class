@@ -10,6 +10,8 @@ class Characters:
     max_sword_dice = 8
     max_magic_dice = 8
     max_bow_dice = 8
+    bow_bonus = 0
+    sword_bonus = 0
 
     def __init__(self, name):
         self.name = name
@@ -20,6 +22,7 @@ class Characters:
     def attack(self):
         dices = self.roll_dice()
         dices = sorted(dices, key=itemgetter(1), reverse=True)
+        dices[0][1] += self.bow_bonus + self.sword_bonus
         return dices[0]
 
     def defend(self, weapon, attack_points):
@@ -65,15 +68,8 @@ class Characters:
         return self.name + " the " + self.__class__.__name__.lower()
 
 
-# Race personnage
-
-class Race:
-
-    def __init__(self, race):
-        self.race = race
-
-
 # Sous-classe Wizard
+
 
 class Wizard(Characters):
 
@@ -129,3 +125,53 @@ class Warrior(Characters):
         elif dices[0] == "Magic":
             dices[1] += self._weight // 30
         return dices
+
+
+# Classe race Elfe
+
+class Elve:
+
+    bow_bonus = 2
+
+
+# Classe race Nain
+
+class Dwarf:
+
+    sword_bonus = 2
+
+
+# Classe Nain Sorcier
+
+class DwarfWizard(Dwarf, Wizard):
+    pass
+
+
+# Classe Nain Archer
+
+class DwarfArcher(Dwarf, Archer):
+    pass
+
+
+# Classe Nain Guerrier
+
+class DwarfWarrior(Dwarf, Warrior):
+    pass
+
+
+# Classe Elfe Sorcier
+
+class ElveWizard(Elve, Wizard):
+    pass
+
+
+# Classe Elfe Archer
+
+class ElveArcher(Elve, Archer):
+    pass
+
+
+# Classe Elfe Guerrier
+
+class ElveWarrior(Elve, Warrior):
+    pass
