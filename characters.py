@@ -22,7 +22,10 @@ class Characters:
     def attack(self):
         dices = self.roll_dice()
         dices = sorted(dices, key=itemgetter(1), reverse=True)
-        dices[0][1] += self.bow_bonus + self.sword_bonus
+        if dices[0][0] == "Bow":
+            dices[0][1] += self.bow_bonus
+        if dices[0][0] == "Sword":
+            dices[0][1] += self.sword_bonus
         return dices[0]
 
     def defend(self, weapon, attack_points):
