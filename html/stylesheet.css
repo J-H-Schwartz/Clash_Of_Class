@@ -10,13 +10,12 @@ src: local('MagicMedieval Regular'), url('Magim___.woff') format('woff');
     width: 100%;
     margin: auto;
 }
+
 .content{
     display: flex;
 }
 
-/*
 .font
 {
     font-family:'MagicMedieval Regular', serif;
 }
-*/
