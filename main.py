@@ -1,7 +1,44 @@
 from characters import ElveWarrior, ElveWizard, ElveArcher, DwarfWarrior, DwarfWizard, DwarfArcher
+import webbrowser
 
 
 def main():
+    while True:
+        menu_jeu = input("(C)ommencer la partie / (L)exique des personnages").upper()
+        if menu_jeu == "C":
+            break
+        elif menu_jeu == "L":
+            while True:
+                menu_lexique = input("Quel personnage souhaitez-vous consulter ?\n Dwarf Wizard (1) / Dwarf Archer (2)"
+                                     " / Dwarf Warrior (3)\n Elve Wizard (4) / Elve Archer (5) / Elve Warrior (6)\n"
+                                     " (Q)uitter").upper()
+                if menu_lexique == "1":
+                    webbrowser.open("./DwarfWizard.html")
+                    continue
+                elif menu_lexique == "2":
+                    webbrowser.open("./DwarfArcher.html")
+                    continue
+                elif menu_lexique == "3":
+                    webbrowser.open("./DwarfWarrior.html")
+                    continue
+                elif menu_lexique == "4":
+                    webbrowser.open("./ElveWizard.html")
+                    continue
+                elif menu_lexique == "5":
+                    webbrowser.open("./ElveArcher.html")
+                    continue
+                elif menu_lexique == "6":
+                    webbrowser.open("./ElveWarrior.html")
+                    continue
+                elif menu_lexique == "Q":
+                    print("Retour au menu précédent.")
+                    break
+                else:
+                    print("Commande invalide, recommencez.")
+            continue
+        else:
+            print("Commande Invalide, recommencez.")
+
     nom1 = input("Entrez un nom: ")
     while True:
         while True:
@@ -45,9 +82,7 @@ def main():
         else:
             print("La configuration du personnage a échoué. Veuillez recommencer.")
 
-
     personnage1 = choix1(nom1)
-    personnage1.as_html()
     print(personnage1)
 
     nom2 = input("Entrez un nom: ")
@@ -95,6 +130,20 @@ def main():
 
     personnage2 = choix2(nom2)
     print(personnage2)
+
+    while True:
+        inspection_personnage = input("Souhaitez vous voir la fiche de votre personnage ou débuter la partie ? {} "
+                                      "(1) / {} (2) / (C)ommencer".format(personnage1.name, personnage2.name)).upper()
+        if inspection_personnage == "1":
+            personnage1.as_html()
+            continue
+        elif inspection_personnage == "2":
+            personnage2.as_html()
+            continue
+        elif inspection_personnage == "C":
+            break
+        else:
+            print("Commande invalide, recommencez.")
 
     personnage_actuel = personnage1
     personnage_oppose = personnage2

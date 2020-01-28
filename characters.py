@@ -70,7 +70,7 @@ class Characters:
         return dices
 
     def __repr__(self):
-        return self.name + " the " + self.__class__.__name__.lower()
+        return self.name + " the " + self.__class__.__name__
 
 
 # Sous-classe Wizard
