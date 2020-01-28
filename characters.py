@@ -12,6 +12,7 @@ class Characters:
     max_bow_dice = 8
     bow_bonus = 0
     sword_bonus = 0
+    magic_bonus = 0
 
     def __init__(self, name):
         self.name = name
@@ -135,46 +136,62 @@ class Warrior(Characters):
 class Elve:
 
     bow_bonus = 2
+    sword_bonus = 0
+    magic_bonus = 0
 
 
 # Classe race Nain
 
 class Dwarf:
 
+    bow_bonus = 0
     sword_bonus = 2
+    magic_bonus = 0
 
 
 # Classe Nain Sorcier
 
-class DwarfWizard(Dwarf, Wizard):
-    pass
+class DwarfWizard(Wizard):
+    def __init__(self, name):
+        super().__init__(name)
+        self.race = Dwarf()
 
 
 # Classe Nain Archer
 
-class DwarfArcher(Dwarf, Archer):
-    pass
+class DwarfArcher(Archer):
+    def __init__(self, name):
+        super().__init__(name)
+        self.race = Dwarf()
 
 
 # Classe Nain Guerrier
 
-class DwarfWarrior(Dwarf, Warrior):
-    pass
+class DwarfWarrior(Warrior):
+    def __init__(self, name):
+        super().__init__(name)
+        self.race = Dwarf()
 
 
 # Classe Elfe Sorcier
 
-class ElveWizard(Elve, Wizard):
-    pass
+class ElveWizard(Wizard):
+    def __init__(self, name):
+        super().__init__(name)
+        self.race = Elve()
 
 
 # Classe Elfe Archer
 
-class ElveArcher(Elve, Archer):
-    pass
+class ElveArcher(Archer):
+    def __init__(self, name):
+        super().__init__(name)
+        self.race = Elve()
 
 
 # Classe Elfe Guerrier
 
-class ElveWarrior(Elve, Warrior):
-    pass
+class ElveWarrior(Warrior):
+    def __init__(self, name):
+        super().__init__(name)
+        self.race = Elve()
