@@ -109,7 +109,7 @@ def main():
     print("")
     while player1.current_life > 0 and player2.current_life > 0:
 
-        print("Au début de ce tour il reste {} points de vie à {}.".format(defender.current_life,
+        print("Au début de ce tour il reste {} points de vie à {}.".format(int(defender.current_life),
                                                                            defender.name))
         weapon, attack_points = attacker.attack()
         print(attacker.name + " frappe pour " + str(attack_points) + " points de dégats.")
@@ -121,7 +121,24 @@ def main():
                                                                 defender.name))
         else:
             print("{} pare le coup porté par {}".format(defender, attacker))
-        print("Il reste " + str(defender.current_life) + " points de vie à " + defender.name + "\n")
+        print("Il reste " + str(int(defender.current_life)) + " points de vie à " + defender.name)
+        if defender.current_life == 0:
+            break
+        heal_try = defender.heal()
+        if heal_try == 1:
+            print("{} essaye de se soigner. Soins Critique ! Sa vie remonte au maximum. Il est désormais à {} points de"
+                  " vie.\n".format(defender.name, int(defender.current_life)))
+        elif heal_try == 2:
+            print("{} essaye de se soigner. Réussite. Il regagne la moitié de son maximum de PV. "
+                  "Il est désormais à {} points de vie.\n".format(defender.name, int(defender.current_life)))
+        elif heal_try == 3:
+            print("{} essaye de se soigner. Le sort réussit, mais avec beaucoup de difficultés. Il regagne un quart de"
+                  " son maximum de PV. Il est désormais à {} points de vie.\n".format(defender.name,
+                                                                                      int(defender.current_life)))
+        elif heal_try == 4:
+            print("{} essaye de se soigner. Le sort échoue.\n".format(defender.name))
+        else:
+            print("{} essaye de se soigner. Echec Critique ! Décès inopiné. (Pauvre naze)\n".format(defender.name))
 
         if attacker == player1:
             attacker = player2

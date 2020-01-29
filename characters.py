@@ -38,6 +38,24 @@ class Characters:
             self.current_life -= damages
         return defence_points
 
+    def heal(self):
+        heal_chance = random.randint(0, 100)
+        if 90 < heal_chance <= 100:
+            self.current_life += self.max_life
+            return 1
+        elif 60 < heal_chance <= 90:
+            self.current_life += self.max_life/2
+            return 2
+        elif 20 < heal_chance <= 60:
+            self.current_life += self.max_life/4
+            return 3
+        elif 5 < heal_chance <= 20:
+            return 4
+        else:
+            self.current_life = 0
+            return 5
+
+
     # Propriété Taille
 
     def _get_height(self):
