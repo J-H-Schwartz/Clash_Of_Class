@@ -6,9 +6,10 @@ class GameUi:
 
     def __init__(self):
         while True:
-            game_menu = input("(C)ommencer la partie / (L)exique des personnages").upper()
+            game_menu = input("(C)ommencer la partie / (L)exique des personnages / (Q)uitter").upper()
             if game_menu == "C":
                 self.characters_selection()
+            elif game_menu == "Q":
                 return
             elif game_menu == "L":
                 while True:
