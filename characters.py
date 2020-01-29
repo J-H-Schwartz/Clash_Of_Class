@@ -20,6 +20,7 @@ class Characters:
         self._current_life = self.max_life
         self._height = random.randint(170, 190)
         self._weight = random.randint(70, 90)
+        self._log = ""
 
     def attack(self):
         attack_results = self.roll_dice()
@@ -36,25 +37,42 @@ class Characters:
         if defence_points < attack_points:
             damages = attack_points - defence_points
             self.current_life -= damages
+        self.logs = " " + self.name + " defends for " + str(defence_points)
         return defence_points
 
     def heal(self):
         heal_chance = random.randint(0, 100)
         if 90 < heal_chance <= 100:
             self.current_life += self.max_life
+            self.logs = " " + self.name + " heals for " + str(self.max_life)
             return 1
         elif 60 < heal_chance <= 90:
             self.current_life += self.max_life/2
+            self.logs = " " + self.name + " heals for " + str(self.max_life/2)
             return 2
         elif 20 < heal_chance <= 60:
             self.current_life += self.max_life/4
+            self.logs = " " + self.name + " heals for " + str(self.max_life/4)
             return 3
         elif 5 < heal_chance <= 20:
+            self.logs = " " + self.name + " heals for 0"
             return 4
         else:
             self.current_life = 0
+            self.logs = " " + self.name + " died from critical miss."
             return 5
 
+    # Propriété Log
+
+    def _get_log(self):
+        temp = self._log
+        self._log = ""
+        return temp
+
+    def _set_log(self, value):
+        self._log += (" " + str(value) + " \n")
+
+    logs = property(_get_log, _set_log)
 
     # Propriété Taille
 
@@ -110,6 +128,7 @@ class Wizard(Characters):
             attack_results[1] += (self._height + self._weight) // 40
         elif attack_results[0] == "Bow":
             attack_results[1] += (self._height - 170) % 3
+        self.logs = " " + self.name + " attacks for " + str(attack_results)
         return attack_results
 
 
@@ -129,6 +148,7 @@ class Archer(Characters):
                 attack_results[1] += self._height // 40
             else:
                 attack_results[1] += self._weight // 20
+        self.logs = " " + self.name + " attacks for " + str(attack_results)
         return attack_results
 
 
@@ -147,6 +167,7 @@ class Warrior(Characters):
             attack_results[1] += (self._height - 170) % 3
         elif attack_results[0] == "Magic":
             attack_results[1] += self._weight // 30
+        self.logs = " " + self.name + " attacks " + str(attack_results)
         return attack_results
 
 

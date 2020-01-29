@@ -164,7 +164,24 @@ class GameUi:
 
         if player1.current_life == 0:
             print(player2.name + " gagne la partie.")
+            self.print_logs(player1, player2)
             return
         if player2.current_life == 0:
             print(player1.name + " gagne la partie.")
+            self.print_logs(player1, player2)
             return
+
+    def print_logs(self, player1, player2):
+        while True:
+            logs_choice = input("De quel personnage voulez-vous voir et supprimer les logs ? {} (1) / {} (2) /"
+                                " (Q)uitter".format(player1.name, player2.name)).upper()
+            if logs_choice == "1":
+                print(player1.logs)
+                continue
+            elif logs_choice == "2":
+                print(player2.logs)
+                continue
+            elif logs_choice == "Q":
+                return
+            else:
+                print("Commande Invalide. Recommencez.")
